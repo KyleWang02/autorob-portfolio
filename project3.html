@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project 3: forward kinematics and a Disco Point robot choreography.">
+  <title>Project 3: Forward kinematics · Kyle Wang</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header wrap"><a class="wordmark" href="index.html">AutoRob portfolio</a><a href="index.html">All projects</a></header>
+  <main id="main" class="wrap article">
+    <header class="intro"><p class="eyebrow">Project 3 · Kyle Wang · EECS 367</p><h1>Forward kinematics</h1></header>
+    <section class="article-section" aria-labelledby="video-title">
+      <h2 id="video-title">Disco Point</h2>
+      <figure>
+        <video controls playsinline preload="metadata" poster="media/disco-point.jpg" aria-label="Disco Point robot choreography: four high and low sweeps, two fist pumps, and a return to Ready" aria-describedby="video-caption">
+          <source src="media/disco-point.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+        <figcaption id="video-caption">18.6 seconds · Silent · <a href="media/disco-point.mp4">Open video</a></figcaption>
+      </figure>
+    </section>
+    <section class="article-section explanation" aria-labelledby="robot-title">
+      <h2 id="robot-title">Robot</h2>
+      <p>A custom URDF arm with three rotating joints—base, shoulder, and elbow—and one vertical sliding joint for a small bounce. The upper arm is 0.65 m long and the forearm is 0.55 m long. A fixed finger makes the pointing direction clear.</p>
+    </section>
+    <section class="article-section explanation" aria-labelledby="motion-title">
+      <h2 id="motion-title">Choreography</h2>
+      <div><p>Ready → high/low × 4 → two fist pumps → final high pose → Ready.</p><p>The custom FSM has 25 movement and hold states. Joints move smoothly toward each target within their limits. Transitions wait for the target tolerance and state duration; brief endpoint pauses and a two-second final hold make each pose visible.</p></div>
+    </section>
+    <section class="article-section explanation" aria-labelledby="rendering-title">
+      <h2 id="rendering-title">Rendering</h2>
+      <p>The video was recorded from <code>make demo</code> with this robot and choreography loaded. The C++ runtime computes forward kinematics. A separate three.js client receives <code>/xform_world</code> through a Python TCP/JSON bridge and draws each link using its column-major world matrix and URDF visual offset. A fixed camera shows the full motion.</p>
+    </section>
+    <p class="source-note"><a href="https://autorob.org/projects/project3/#portfolio-deliverable">Project requirements</a></p>
+  </main>
+  <footer class="site-footer wrap"><a href="index.html">All projects</a><span>Fall 2026</span></footer>
+</body>
+</html>
